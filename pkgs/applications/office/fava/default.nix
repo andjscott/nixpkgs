@@ -10,6 +10,8 @@ python3Packages.buildPythonApplication rec {
     sha256 = "c370eca6de0a4a324eb8e25105d2a31deb7630fa84067a4a0baa7e2ad87b8f0f";
   };
 
+  assets = src;
+
   buildInputs = with python3Packages; [ pytest ];
 
   doCheck = false;
@@ -21,6 +23,10 @@ python3Packages.buildPythonApplication rec {
       --ignore tests/test_cli.py \
       --ignore tests/test_translations.py \
   '';
+
+  # postInstall = ''
+  #   cp -r $assets/fava/static/gen $out/${python3.sitePackages}/fava/static
+  # '';
 
   propagatedBuildInputs = with python3Packages;
     [ flask dateutil pygments wheel markdown2 flaskbabel tornado
