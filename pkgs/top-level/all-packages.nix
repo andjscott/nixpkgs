@@ -17433,7 +17433,9 @@ with pkgs;
 
   fairymax = callPackage ../games/fairymax {};
 
-  fava = callPackage ../applications/office/fava {};
+  fava = callPackage ../applications/office/fava {
+      python3Packages = python35Packages;
+  };
 
   fish-fillets-ng = callPackage ../games/fish-fillets-ng {};
 
