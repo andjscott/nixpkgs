@@ -1,0 +1,13 @@
+diff --git a/src/ui.rs b/src/ui.rs
+index 7e1839e..ad37447 100644
+--- a/src/ui.rs
++++ b/src/ui.rs
+@@ -210,7 +210,7 @@ impl XiCore {
+ 
+ impl Ui {
+     pub fn new(core_stdin: ChildStdin) -> Rc<RefCell<Ui>> {
+-        let builder = Builder::new_from_file("resources/gxi.ui");
++        let builder = Builder::new_from_file("@gxi-unwrapped@/usr/share/gxi/resources/gxi.ui");
+         let window: Window = builder.get_object("appwindow").unwrap();
+         let notebook: Notebook = builder.get_object("notebook").unwrap();
+         let new_button: Button = builder.get_object("new_button").unwrap();

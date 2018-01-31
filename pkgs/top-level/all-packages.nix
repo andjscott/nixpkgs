@@ -17927,7 +17927,16 @@ with pkgs;
 
   xdotool = callPackage ../tools/X11/xdotool { };
 
-  xenPackages = recurseIntoAttrs (callPackage ../applications/virtualization/xen/packages.nix {});
+
+  xi-core = callPackage ../applications/editors/xi { };
+  gxi-unwrapped = callPackage ../applications/editors/xi/gxi { };
+  gxi = callPackage ../applications/editors/xi/wrapper.nix {
+    frontend = gxi-unwrapped;
+  };
+  kod = callPackage ../applications/editors/xi/wrapper.nix {
+    frontend = callPackage ../applications/editors/xi/kod { };
+  };
+
 
   xen = xenPackages.xen_4_5-vanilla;
   xen-slim = xenPackages.xen_4_5-slim;
