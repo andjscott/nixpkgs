@@ -17933,8 +17933,9 @@ with pkgs;
   gxi = callPackage ../applications/editors/xi/wrapper.nix {
     frontend = gxi-unwrapped;
   };
+  kod-unwrapped = callPackage ../applications/editors/xi/kod { };
   kod = callPackage ../applications/editors/xi/wrapper.nix {
-    frontend = callPackage ../applications/editors/xi/kod { };
+    frontend = kod-unwrapped;
   };
 
 
